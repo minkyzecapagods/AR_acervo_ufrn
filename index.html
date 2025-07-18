@@ -192,7 +192,6 @@
             margin-bottom: 10px;
         }
 
-        /* NOVO: Botão principal destacado */
         .main-cta {
             text-align: center;
             margin: 40px 0;
@@ -213,9 +212,9 @@
                 Análise interativa das relações entre livros baseada em padrões de empréstimo bibliotecário da UFRN
             </p>
             
-            <!-- BOTÃO PRINCIPAL ADICIONADO -->
+            <!-- BOTÃO PRINCIPAL ATUALIZADO -->
             <div class="main-cta">
-                <a href="livros_network.html" class="btn main-btn">
+                <a href="livros_network.html" class="btn main-btn" id="network-link">
                     <i class="fas fa-network-wired"></i> ACESSAR VISUALIZAÇÃO INTERATIVA
                 </a>
             </div>
@@ -238,7 +237,7 @@
                 
                 <p><strong>Link alternativo funcional:</strong></p>
                 <div style="text-align: center; margin: 20px 0;">
-                    <a href="livros_network.html" class="btn">
+                    <a href="livros_network.html" class="btn" id="retry-link">
                         Tentar novamente <i class="fas fa-sync-alt"></i>
                     </a>
                 </div>
@@ -275,7 +274,7 @@
                 <li><strong>Estrutura do repositório:</strong>
                     <pre>
 AR_acervo_ufrn
-├── .nojekyll       <!-- ADICIONADO ESTE ARQUIVO IMPORTANTE -->
+├── .nojekyll       <!-- ESSENCIAL! -->
 ├── _config.yml
 ├── data
 │   ├── acervo-exemplares.csv
@@ -289,8 +288,8 @@ AR_acervo_ufrn
                 </li>
                 
                 <li><strong>Forçar atualização:</strong>
-                    <br>Adicione <code>?v=2</code> no final do URL: 
-                    <a href="livros_network.html?v=2" style="color: #4fc3f7;">livros_network.html?v=2</a>
+                    <br>Adicione <code>?v=3</code> no final do URL: 
+                    <a href="livros_network.html?v=3" style="color: #4fc3f7;" id="cache-link">livros_network.html?v=3</a>
                 </li>
                 
                 <li><strong>Links de referência:</strong>
@@ -305,5 +304,21 @@ AR_acervo_ufrn
             <p>© 2023 | Repositório acadêmico</p>
         </footer>
     </div>
+
+    <script>
+        // Script para resolver problemas de cache
+        document.addEventListener('DOMContentLoaded', function() {
+            // Adiciona parâmetro de versão a todos os links
+            const version = new Date().getTime();
+            
+            // Atualiza os links
+            document.getElementById('network-link').href = `livros_network.html?v=${version}`;
+            document.getElementById('retry-link').href = `livros_network.html?v=${version}`;
+            document.getElementById('cache-link').href = `livros_network.html?v=${version}`;
+            
+            // Mensagem de verificação
+            console.log("Links atualizados com parâmetro anti-cache:", version);
+        });
+    </script>
 </body>
 </html>

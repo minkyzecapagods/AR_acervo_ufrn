@@ -1,0 +1,5 @@
+# _config.yml
+title: Análise de Rede UFRN
+theme: none
+plugins: []
+include: [".nojekyll"]

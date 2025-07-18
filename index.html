@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Análise de Rede - Empréstimos de Livros UFRN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -129,42 +130,33 @@
         .btn i {
             margin-left: 8px;
         }
-        
-        .visualization {
-            background: rgba(20, 30, 48, 0.85);
-            border-radius: 15px;
+
+        .error-info {
+            background: rgba(200, 50, 50, 0.2);
+            border-radius: 10px;
             padding: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            margin-top: 20px;
+            margin: 20px 0;
             text-align: center;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
         }
         
-        .visualization h2 {
-            margin-bottom: 20px;
-            color: #4fc3f7;
-        }
-        
-        .placeholder {
-            width: 100%;
-            height: 350px;
+        .troubleshoot {
             background: rgba(30, 40, 80, 0.5);
             border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            border: 2px dashed rgba(79, 195, 247, 0.3);
+            padding: 20px;
+            margin-top: 30px;
         }
         
-        .placeholder i {
-            font-size: 4rem;
-            color: rgba(79, 195, 247, 0.5);
-            margin-bottom: 20px;
+        .troubleshoot h3 {
+            color: #ff7979;
+            margin-bottom: 15px;
+        }
+        
+        .troubleshoot ol {
+            padding-left: 20px;
+        }
+        
+        .troubleshoot li {
+            margin-bottom: 10px;
         }
         
         footer {
@@ -200,8 +192,6 @@
             margin-bottom: 10px;
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="container">
@@ -212,24 +202,29 @@
             </p>
         </header>
         
+        <div class="error-info">
+            <h2><i class="fas fa-exclamation-triangle"></i> Problema ao carregar a visualização</h2>
+            <p>O arquivo de rede não foi encontrado no caminho esperado.</p>
+            <p>Por favor, verifique as soluções abaixo ou entre em contato com o administrador.</p>
+        </div>
+        
         <div class="grid">
             <div class="card">
-                <h2><i class="fas fa-lightbulb"></i> Sobre a Análise</h2>
-                <p>Esta visualização explora relações entre livros baseadas em padrões sequenciais de empréstimo bibliotecário.</p>
+                <h2><i class="fas fa-lightbulb"></i> Solução Rápida</h2>
                 
                 <div class="highlight">
-                    <p><strong>Metodologia:</strong> Livros conectados quando emprestados sequencialmente pelo mesmo usuário. Espessura das arestas indica frequência de transições.</p>
+                    <p><strong>Mova o arquivo para a raíz:</strong></p>
+                    <p>Certifique-se que <code>livros_network.html</code> está no mesmo diretório que este arquivo.</p>
                 </div>
                 
-                <p><strong>Dados analisados:</strong></p>
-                <ul style="margin-left: 20px; margin-bottom: 20px;">
-                    <li>12,346 livros (nós)</li>
-                    <li>24,749 transições (arestas)</li>
-                    <li>3 categorias de usuários</li>
-                    <li>Período: 2013-2020</li>
-                </ul>
+                <p><strong>Link alternativo funcional:</strong></p>
+                <div style="text-align: center; margin: 20px 0;">
+                    <a href="livros_network.html" class="btn">
+                        Tentar novamente <i class="fas fa-sync-alt"></i>
+                    </a>
+                </div>
                 
-                <p>Os dados revelam padrões de conhecimento interdisciplinar e caminhos de aprendizado preferenciais.</p>
+                <p>Se o problema persistir, siga o guia de solução de problemas à direita.</p>
             </div>
             
             <div class="card">
@@ -243,51 +238,33 @@
                 <p><i class="fas fa-circle" style="color: #74b9ff;"></i> Ciências Exatas</p>
                 <p><i class="fas fa-circle" style="color: #55efc4;"></i> Ciências Sociais</p>
                 <p><i class="fas fa-circle" style="color: #ffeaa7;"></i> Tecnologia</p>
+            </div>
+        </div>
+        
+        <div class="troubleshoot">
+            <h3><i class="fas fa-tools"></i> Guia de Solução de Problemas</h3>
+            <ol>
+                <li><strong>Verifique o nome do arquivo:</strong>
+                    <br>O arquivo gerado pelo Pyvis deve se chamar EXATAMENTE <code>livros_network.html</code></li>
                 
-                <div class="highlight" style="margin-top: 20px;">
-                    <p><strong>Fluxos de conhecimento:</strong> Padrões recorrentes de sequenciamento entre disciplinas</p>
-                </div>
+                <li><strong>Posicione corretamente:</strong>
+                    <br>Coloque o arquivo na mesma pasta que este <code>index.html</code></li>
                 
-                <p>Ex: Matemática → Física → Computação → Robótica</p>
-            </div>
-        </div>
-        
-        <div class="features">
-            <div class="feature">
-                <i class="fas fa-sitemap"></i>
-                <h3>Comunidades</h3>
-                <p>Grupos temáticos identificados pelo algoritmo Louvain</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-exchange-alt"></i>
-                <h3>Fluxos</h3>
-                <p>Padrões de transição entre diferentes áreas</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-hubspot"></i>
-                <h3>Hubs</h3>
-                <p>Livros centrais com alta conectividade</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-tags"></i>
-                <h3>Tags</h3>
-                <p>Classificação por assuntos e categorias</p>
-            </div>
-        </div>
-        
-        <div class="btn-container">
-            <a href="livros_network.html" class="btn">
-                Acessar Visualização Interativa <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
-        
-        <div class="visualization">
-            <h2><i class="fas fa-network-wired"></i> Pré-visualização da Rede</h2>
-            <div class="placeholder">
-                <i class="fas fa-project-diagram"></i>
-                <p>Visualização interativa carregada dinamicamente</p>
-                <p style="margin-top: 10px; color: #81d4fa;">Clique no botão acima para explorar a rede completa</p>
-            </div>
+                <li><strong>Adicione arquivo .nojekyll:</strong>
+                    <br>Crie um arquivo vazio chamado <code>.nojekyll</code> na raiz do repositório</li>
+                
+                <li><strong>Estrutura do repositório:</strong>
+                    <pre>
+repo/
+├── livros_network.html
+├── index.html
+└── .nojekyll</pre>
+                </li>
+                
+                <li><strong>Links de referência:</strong>
+                    <br><a href="https://pages.github.com/" style="color: #4fc3f7;">Official GitHub Pages Docs</a>
+                </li>
+            </ol>
         </div>
         
         <footer>

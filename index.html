@@ -191,6 +191,18 @@
             color: #81d4fa;
             margin-bottom: 10px;
         }
+
+        /* NOVO: Botão principal destacado */
+        .main-cta {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .main-btn {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            padding: 20px 50px;
+            font-size: 1.5rem;
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
+        }
     </style>
 </head>
 <body>
@@ -200,6 +212,13 @@
             <p class="subtitle">
                 Análise interativa das relações entre livros baseada em padrões de empréstimo bibliotecário da UFRN
             </p>
+            
+            <!-- BOTÃO PRINCIPAL ADICIONADO -->
+            <div class="main-cta">
+                <a href="livros_network.html" class="btn main-btn">
+                    <i class="fas fa-network-wired"></i> ACESSAR VISUALIZAÇÃO INTERATIVA
+                </a>
+            </div>
         </header>
         
         <div class="error-info">
@@ -255,10 +274,23 @@
                 
                 <li><strong>Estrutura do repositório:</strong>
                     <pre>
-repo/
-├── livros_network.html
+AR_acervo_ufrn
+├── .nojekyll       <!-- ADICIONADO ESTE ARQUIVO IMPORTANTE -->
+├── _config.yml
+├── data
+│   ├── acervo-exemplares.csv
+│   ├── emprestimos.csv
+│   └── exemplares.csv
 ├── index.html
-└── .nojekyll</pre>
+├── livros_network.html
+├── notebook
+│   └── AR_acervo_ufrn.ipynb
+└── README.md</pre>
+                </li>
+                
+                <li><strong>Forçar atualização:</strong>
+                    <br>Adicione <code>?v=2</code> no final do URL: 
+                    <a href="livros_network.html?v=2" style="color: #4fc3f7;">livros_network.html?v=2</a>
                 </li>
                 
                 <li><strong>Links de referência:</strong>
